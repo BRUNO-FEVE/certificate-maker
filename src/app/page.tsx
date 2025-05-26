@@ -31,8 +31,8 @@ import {
   Download,
   RefreshCw,
   Info,
-  ChevronLeft,
-  ChevronRight,
+  // ChevronLeft,
+  // ChevronRight,
 } from "lucide-react";
 import Certificate from "@/components/certificate";
 
@@ -56,8 +56,8 @@ export default function Home() {
     Array<{ email: string; status: "success" | "failed" | "pending" }>
   >([]);
   const [progress, setProgress] = useState<number>(0);
-  const [currentMemberExempleIndex, SetCurrentMemberExempleIndex] =
-    useState<number>(0);
+  // const [currentMemberExempleIndex, SetCurrentMemberExempleIndex] =
+  // useState<number>(0);
 
   const handleTemplateUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -558,17 +558,11 @@ export default function Home() {
                       Certificate Preview (Sample):
                     </h3>
                     <Certificate
-                      name={
-                        JSON.parse(jsonData)[currentMemberExempleIndex].name
-                      }
-                      role={
-                        JSON.parse(jsonData)[currentMemberExempleIndex].role
-                      }
-                      hour={
-                        JSON.parse(jsonData)[currentMemberExempleIndex]
-                          .hoursWorked
-                      }
+                      name={JSON.parse(jsonData)[0].name}
+                      role={JSON.parse(jsonData)[0].role}
+                      hour={JSON.parse(jsonData)[0].hoursWorked}
                     />
+                    {/*
                     <div className="w-full flex flex-row items-center justify-center py-4 gap-2">
                       <ChevronLeft
                         className="cursor-pointer"
@@ -586,6 +580,7 @@ export default function Home() {
                         }}
                       />
                     </div>
+                     */}
                     <p className="text-xs text-muted-foreground mt-2">
                       Note: This is a simplified preview. Actual PDFs will have
                       proper text positioning.
